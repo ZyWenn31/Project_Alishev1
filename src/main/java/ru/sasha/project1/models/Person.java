@@ -14,7 +14,6 @@ public class Person {
 
     @Min(value = 1901, message = "born should be minimum 1901")
     @Max(value = 2023, message = "born should be maximum 2023")
-    @NotEmpty(message = "Born should not be empty")
     private int born;
 
     public Person(int id, String name, int born) {
