@@ -19,7 +19,8 @@ public class BookDAO {
     }
 
     public List<Book> index(){
-        return jdbcTemplate.query("SELECT * FROM book", new BeanPropertyRowMapper<>(Book.class));
+        List<Book>query = jdbcTemplate.query("SELECT * FROM book", new BeanPropertyRowMapper<>(Book.class));
+        return query;
     }
 
     public Book show(int id){
@@ -31,11 +32,15 @@ public class BookDAO {
     }
 
     public void update(int id, Book book){
-        jdbcTemplate.update("UPDATE book SET title=?, author=?, year=?, WHERE id=?", book.getTitle(), book.getAuthor(), book.getYear(), id);
+        jdbcTemplate.update("UPDATE book SET title=?, author=?, year=? WHERE id=?", book.getTitle(), book.getAuthor(), book.getYear(), id);
     }
 
-    public void updateOwner(int id, int owner_id){
-        jdbcTemplate.update("UPDATE book SET owner_id=?, WHERE id=?", owner_id, id);
+    public void updateOwner(int id, Integer owner_id){
+        jdbcTemplate.update("UPDATE book SET owner_id=? WHERE id=?", owner_id, id);
+    }
+
+    public Book owner(int id){
+        return jdbcTemplate.query("SELECT owner_id FROM book WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Book.class)).stream().findAny().orElse(null);
     }
 
     public void delete(int id){

@@ -19,10 +19,10 @@ public class Book {
     @Max(value = 2024, message = "The year should be maximum 2024")
     private int year;
 
-    private int owner_id;
+    private Integer owner_id;
 
 
-    public Book(int id, String title, String author, int year, int owner_id) {
+    public Book(int id, String title, String author, int year, Integer owner_id) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -65,11 +65,11 @@ public class Book {
         this.year = year;
     }
 
-    public int getOwner_id() {
+    public Integer getOwner_id() {
         return owner_id;
     }
 
-    public void setOwner_id(int owner_id) {
+    public void setOwner_id(Integer owner_id) {
         this.owner_id = owner_id;
     }
 }
