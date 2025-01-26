@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="GET" th:action="@{/books/searched}">
+    <label for="title">Enter Book title:</label>
+    <input type="text" id="title" name="title">
+    <input type="submit" value="Search">
+</form>
+</body>
+</html>
+

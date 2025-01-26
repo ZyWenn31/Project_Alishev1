@@ -14,7 +14,7 @@
 <form th:if="${personBooks.size() > 0}">
     <p style="color: chocolate"  th:text="Books">books</p>
     <div th:each="book : ${personBooks}">
-        <p th:text="${book.getTitle() +', ' + book.getAuthor() + ', ' + book.getYear()}">Book</p>
+        <p th:style="'color: ' + (${book.isOverdue()} ? 'red' : 'blakc')" th:text="${book.getTitle() +', ' + book.getAuthor() + ', ' + book.getYear()}">Book</p>
     </div>
 </form>
 
